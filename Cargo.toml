@@ -1,0 +1,9 @@
+[package]
+name = "reusable-garbled-circuit"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+aes = "0.8.4"
+aes-gcm = "0.10.3"
+rand = "0.8.5"

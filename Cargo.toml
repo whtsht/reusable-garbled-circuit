@@ -7,3 +7,5 @@ edition = "2021"
 aes = "0.8.4"
 aes-gcm = "0.10.3"
 rand = "0.8.5"
+tfhe = { version = "0.6.1", features = [ "boolean", "shortint", "integer", "x86_64-unix" ] }
+anyhow = "1.0"

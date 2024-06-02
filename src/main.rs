@@ -4,6 +4,8 @@ mod garbled_circuit;
 mod symmetric_key_encryption;
 mod util;
 use anyhow::Result;
+mod fhe_aes;
+mod fhe_gf;
 
 fn main() -> Result<()> {
     // client side

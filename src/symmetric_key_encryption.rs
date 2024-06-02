@@ -1,12 +1,12 @@
 use aes_gcm::aead::{Aead, KeyInit};
-use aes_gcm::{Aes256Gcm, Nonce};
+use aes_gcm::{Aes128Gcm, Nonce};
 use anyhow::{anyhow, Result};
 
 use crate::util::generate_os_rand;
 
 pub fn encrypt(key: &[u8], plaintext: &[u8]) -> Result<(Vec<u8>, Vec<u8>)> {
     // Create cipher instance
-    let cipher = Aes256Gcm::new_from_slice(key).map_err(|_| anyhow!("Invalid key length"))?;
+    let cipher = Aes128Gcm::new_from_slice(key).map_err(|_| anyhow!("Invalid key length"))?;
 
     // Generate a random nonce
     let nonce = generate_os_rand(96);
@@ -32,7 +32,7 @@ pub fn double_encrypt(
 
 pub fn decrypt(key: &[u8], (nonce, ciphertext): (&Vec<u8>, &Vec<u8>)) -> Result<Vec<u8>> {
     // Create cipher instance
-    let cipher = Aes256Gcm::new_from_slice(key).map_err(|_| anyhow!("Invalid key length"))?;
+    let cipher = Aes128Gcm::new_from_slice(key).map_err(|_| anyhow!("Invalid key length"))?;
 
     // Perform decryption
     let plaintext = cipher

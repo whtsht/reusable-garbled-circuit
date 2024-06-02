@@ -25,8 +25,8 @@ impl From<(Vec<u8>, Vec<u8>)> for GarbledTable {
 type GarbledTable2 = (GarbledTable, GarbledTable);
 
 pub fn generate2() -> Result<(GarbledInputLabel2, GarbledOutputLabel2, GarbledTable2)> {
-    let garbled_input_label2 = GarbledInputLabel2(generate_os_rand(256), generate_os_rand(256));
-    let garbled_output_label2 = GarbledOutputLabel2(generate_os_rand(256), generate_os_rand(256));
+    let garbled_input_label2 = GarbledInputLabel2(generate_os_rand(128), generate_os_rand(128));
+    let garbled_output_label2 = GarbledOutputLabel2(generate_os_rand(128), generate_os_rand(128));
 
     // TODO shuffle
     let garbled_table2 = (
